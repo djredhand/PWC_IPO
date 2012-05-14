@@ -61,7 +61,7 @@ window.onload = function() {
 														function(){
 															mask.attr('width',790);
 															arr4.attr('opacity', 1);
-															mask.animate({x:790}, 500, '<')
+															mask.animate({x:790}, 500, '<', arrowClickHandlers())
 														});
 												});
 										});
@@ -75,27 +75,28 @@ window.onload = function() {
 		
 		console.log('mask 2 done')
 	}
-	
-	arr1.click(function(){
-		paper.setSize(750, 410);
-		
-		arr2_rect.animate({height:252},395,'<');
-		arr2.animate({x:136, y:250}, 500,'<');
-		
-		arr3_rect.animate({height:300},395,'<');
-		arr3.animate({x:72, y:300}, 500,'<');
-		
-		arr4_rect.animate({height:350},395,'<');
-		arr4.animate({x:8, y:350}, 500,'<',function(){
-				var textHead  = paper.text(210,155,arr4_textHeader).attr(textHeader_attr);
-				var text = paper.text(220,200,arr4_text).attr(text_attr);
-			});
-		$('#canvas_container').animate(
-                {height: '410px'}, {
-                    duration: 'slow',
-                    easing: 'easeOutQuad'
-                });
-	})//end arr1.click
+	function arrowClickHandlers(){
+		arr1.click(function(){
+			paper.setSize(750, 410);
+			
+			arr2_rect.animate({height:252},395,'<');
+			arr2.animate({x:136, y:250}, 500,'<');
+			
+			arr3_rect.animate({height:300},395,'<');
+			arr3.animate({x:72, y:300}, 500,'<');
+			
+			arr4_rect.animate({height:350},395,'<');
+			arr4.animate({x:8, y:350}, 500,'<',function(){
+					var textHead  = paper.text(210,155,arr4_textHeader).attr(textHeader_attr);
+					var text = paper.text(220,200,arr4_text).attr(text_attr);
+				});
+			$('#canvas_container').animate(
+					{height: '410px'}, {
+						duration: 'slow',
+						easing: 'easeOutQuad'
+					});
+		})//end arr1.click
+	}//end arrowClickHandlers
 	
 	moveMask1(moveMask2);
 }
